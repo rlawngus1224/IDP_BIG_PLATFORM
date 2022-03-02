@@ -1,6 +1,8 @@
 # IDP_BIG_PLATFORM
 Konkuk Univ. IDP LAB big data platform project
 
+    docker pull rlawngus1224/base_img
+
 ## 2022_03_02 Report
 현재 하둡 설치 및 core-site.xml hdfs-site.xml mapred-site.xml 파일 설정이 완료
 
