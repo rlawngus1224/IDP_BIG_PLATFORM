@@ -9,25 +9,30 @@ Konkuk Univ. IDP LAB big data platform project
 해당 이미지 pull 받은 뒤
 
 <namenode 컨테이너>
-docker run -itd --privileged -h namenode.hadoop --name namenode.hadoop -p 8000:50070 rlawngus1224/base_img:1.0 init
+
+  docker run -itd --privileged -h namenode.hadoop --name namenode.hadoop -p 8000:50070 rlawngus1224/base_img:1.0 init
 
 <secondnode 컨테이너>
-docker run -itd --privileged -h secondnode.hadoop --name secondnode.hadoop --link namenode.hadoop:namenode.hadoop rlawngus1224/base_img init
+
+  docker run -itd --privileged -h secondnode.hadoop --name secondnode.hadoop --link namenode.hadoop:namenode.hadoop rlawngus1224/base_img init
 
 <datanode1 컨테이너>
-docker run -itd --privileged -h datanode1.hadoop --name datanode1.hadoop --link namenode.hadoop:namenode.hadoop rlawngus1224/base_img:1.0 init
+  
+  docker run -itd --privileged -h datanode1.hadoop --name datanode1.hadoop --link namenode.hadoop:namenode.hadoop rlawngus1224/base_img:1.0 init
 
 <datanode2 컨테이너>
-docker run -itd --privileged -h datanode2.hadoop --name datanode2.hadoop --link namenode.hadoop:namenode.hadoop rlawngus1224/base_img:1.0 init
+
+  docker run -itd --privileged -h datanode2.hadoop --name datanode2.hadoop --link namenode.hadoop:namenode.hadoop rlawngus1224/base_img:1.0 init
 
 명령으로 생성 후 
 
-docker exec -it namenode.hadoop bin/bash
+  docker exec -it namenode.hadoop bin/bash
 
 명령으로 namenode에 접근
 
 각 컨테이너의 ip를 vi /etc/hosts 명령어를 통해 기재
-vi /$HADOOP_CONFIG/slaves 명령어로 datanode1 , datanode2 기재
+
+  vi /$HADOOP_CONFIG/slaves 명령어로 datanode1 , datanode2 기재
 
 이후 각 컨테이너에 ssh 접근 후 /etc/hosts 파일 수정
 
