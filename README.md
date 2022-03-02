@@ -8,7 +8,7 @@ Konkuk Univ. IDP LAB big data platform project
 
 해당 이미지 pull 받은 뒤
 
-```<namenode 컨테이너>```
+<namenode 컨테이너>
 
     docker run -itd --privileged -h namenode.hadoop --name namenode.hadoop -p 8000:50070 rlawngus1224/base_img:1.0 init
 
